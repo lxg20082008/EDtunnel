@@ -710,11 +710,33 @@ function getVLESSConfig(userIDs, hostName) {
 ---------------------------------------------------------------
 ${vlessMain}
 <button onclick='copyToClipboard("${vlessMain}")'><i class="fa fa-clipboard"></i> Copy vlessMain</button>
+  <p>使用自定义域名查看配置，CF-workers-vless+ws节点
+  <p>注意：当前节点无需使用CF解析完成的域名，客户端选项的TLS选项必须关闭</p>
+  <p>***************</p>
+  <p>客户端必要文明参数如下：</p>
+  <p>客户端地址(address)：自定义的域名 或者 优选域名 或者 优选IP（反代IP必须与反代端口对应）</p>
+  <p>端口(port)：7个http端口可任意选择(80、8080、8880、2052、2082、2086、2095)</p>
+  <p>用户ID(uuid)：${userID}</p>
+  <p>传输协议(network)：ws 或者 websocket</p>
+  <p>伪装域名(host)：${hostName}</p>
+  <p>路径(path)：/?ed=2048</p>
 ---------------------------------------------------------------
 v2ray with bestip
 ---------------------------------------------------------------
 ${vlessSec}
 <button onclick='copyToClipboard("${vlessSec}")'><i class="fa fa-clipboard"></i> Copy vlessSec</button>
+  <p>使用自定义域名查看配置，CF-workers-vless+ws+tls
+  <p>注意：客户端选项的伪装域名(host)必须改为你在CF解析完成的自定义域名</p>
+  <p>***************</p>
+  <p>客户端必要文明参数如下：</p>
+  <p>客户端地址(address)：自定义的域名 或者 优选域名 或者 优选IP（反代IP必须与反代端口对应）</p>
+  <p>端口(port)：6个https端口可任意选择(443、8443、2053、2083、2087、2096)</p>
+  <p>用户ID(uuid)：${userID}</p>
+  <p>传输协议(network)：ws 或者 websocket</p>
+  <p>伪装域名(host)：${hostName}</p>
+  <p>路径(path)：/?ed=2048</p>
+  <p>传输安全(TLS)：开启</p>
+  <p>跳过证书验证(allowlnsecure)：false</p>
 ---------------------------------------------------------------`;
 	}).join('\n');
 	const sublink = `https://${hostName}/sub/${userIDArray[0]}?format=clash`
